@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}upload file{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'task/css/task.css' %}">{% endblock %}
+{% block js %}<script src="{% static 'task/js/task.js' %}"></script>{% endblock %}
+{% block content %}
+<form method="post" enctype="multipart/form-data" class="file-upload-form">
+    {% csrf_token %}
+    <label class="input-file">
+	   	<input type="file" name="file" id="fileInput">
+ 	   	<span class="input-file-btn">Выберите файл</span>
+	   	<span class="input-file-text" id="fileText">Максимум 10мб</span>
+        <button type="submit" class="submit-btn">Отправить</button>
+ 	</label>
+  </form>
+{% endblock %}
